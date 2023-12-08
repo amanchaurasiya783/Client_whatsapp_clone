@@ -9,9 +9,12 @@ const AccountProvider = ({ children }) => {
     const [activeUsers, setActiveUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState({});
     const socket = useRef();
+    const dotenv = require('dotenv').config();
 
+    // const URL = 'ws://localhost:9000';
+    const URL = 'https://socket-whatsapp-clone.onrender.com/';
     useEffect(() => {
-        socket.current = io('ws://localhost:9000')
+        socket.current = io(URL)
     }, [])
 
     return (
